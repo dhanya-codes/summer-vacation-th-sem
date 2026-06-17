@@ -1,0 +1,88 @@
+class employee:
+    def __init__(self,id,name,age,dept,exp):
+       self.id=id
+       self.name=name
+       self.age=age
+       self.dept=dept
+       self.exp=exp
+    def display(self):
+        print(f"ID={self.id},NAME={self.name},AGE={self.age},DEPARTMENT={self.dept},EXPERIENCE={self.exp}")
+class empmanagement:
+    def __init__(self):
+        self.employees=[]
+    def addemp(self):
+        id=int(input("Enter employee id:"))
+        name=input("Enter employee name:")
+        age=int(input("Enter the age:"))
+        dept=input("Enter employee department:")
+        exp=int(input("Enter the years of experience:"))
+        emp=employee(id,name,age,dept,exp)
+        self.employees.append(emp)
+        print("Employee details added")
+    def viewemp(self):
+        if not self.employees:
+            print("Not found")
+            return
+        for emp in self.employees:
+            emp.display()    
+    def searchemp(self):
+        empid=int(input("Enter employee id to search:"))
+        for emp in self.employees:
+            if emp.id==empid:
+                emp.display()
+                return
+        print("sorry not found")
+    def updateemp(self):
+        empid=int(input("Enter employee id to update:"))
+        for emp in self.employees:
+          if emp.id==empid:
+            id=int(input("Enter new id:"))
+            name=input("Enter new name:")
+            age=int(input("Enter new age:"))
+            dept=input("Enter new department:")
+            exp=int(input("Enter new experience:"))
+            print("Details updated")
+            return
+        print("Not found")  
+    def delete(self):
+        empid=int(input("Enter id to delete:"))
+        for emp in self.employees:
+            if emp.id==empid:
+                self.employees.remove(emp)
+                print("DELETED:")
+                return
+        print("NOT found")
+def main():
+    e=empmanagement()
+    while True:
+        print("1.ADD EMPLOYEEE")
+        print("2.DELETE EMPLOYEE")
+        print("3.SEARCH EMPLOYEE")
+        print("4.UPDATE EMPLOYEEE")
+        print("5.DISPLAY EMPLOYEEE")
+        choice=int(input("Enter your choice:"))
+        if choice==1:
+            e.addemp()
+        elif choice==2:
+            e.delete()
+        elif choice==3:
+            e.searchemp()
+        elif choice==4:
+            e.updateemp()
+        elif choice==5:
+            e.viewemp()
+        else:
+            print("Enter your valid choice:")
+            return  
+if __name__ =="__main__":
+  main()                        
+
+
+    
+             
+                 
+
+
+   
+   
+   
