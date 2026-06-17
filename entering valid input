@@ -1,0 +1,8 @@
+while True:
+    str=input("Enter the password:")
+    n=len(str)
+    if(n<8):
+        print("Make sure your entered password has 8 characters")
+    else:
+        print("PASSWORD IS VALID")
+        break
